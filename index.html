@@ -2,14 +2,15 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <title>RITMO Padel — Die App ist nun im Live-Beta Mode!</title>
-  <meta name="description" content="RITMO Padel — Padel-Scoring, Turniere, RITMO DNA. Jetzt live unter ritmopadel.app. Events, Shop und mehr in Kürze.">
+  <title>RITMO Padel — Club, Consulting, Community</title>
+  <meta name="description" content="RITMO Padel — der Padel Club für Community & Events, RITMO Facility Consulting, das Team, die RITMO DNA und die App (Live-Beta) unter ritmopadel.app.">
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0A0A0A">
-  <link rel="canonical" href="https://ritmopadel.app/">
+  <link rel="canonical" href="https://ritmopadel.de/">
   <!-- Open Graph -->
   <meta property="og:title" content="RITMO Padel">
-  <meta property="og:description" content="Die App ist live unter ritmopadel.app. Events, Shop, Community — coming soon.">
+  <meta property="og:description" content="Padel Club, Facility Consulting, Team, DNA und App — alles unter einem Dach.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ritmopadel.de/">
 
@@ -40,6 +41,7 @@
     body{overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:4px}
+    html{scroll-behavior:smooth}
 
     /* Layout container */
     .wrap{max-width:1080px;margin:0 auto;padding:0 28px;position:relative}
@@ -53,27 +55,29 @@
       transform:translateY(-2px)}
     .nav{display:flex;gap:24px;font-size:13px;font-weight:600;color:var(--t2);letter-spacing:.4px}
     .nav a:hover{color:var(--orange)}
-    @media(max-width:520px){.nav{display:none}}
+    @media(max-width:720px){.nav{display:none}}
 
     /* ─── Hero ─────────────────────────────────────────────── */
-    .hero{position:relative;padding:96px 0 120px;overflow:hidden}
+    .hero{position:relative;padding:96px 0 80px;overflow:hidden}
     .hero h1{font-size:clamp(56px,12vw,144px);font-weight:900;font-style:italic;
       letter-spacing:-2px;line-height:.95;color:var(--t1);
-      max-width:8ch}
+      max-width:9ch}
     .hero h1 .accent{color:var(--orange)}
     .hero p.lead{margin-top:32px;font-size:clamp(16px,2.2vw,20px);
-      color:var(--t2);max-width:48ch;line-height:1.6;font-weight:400}
+      color:var(--t2);max-width:54ch;line-height:1.6;font-weight:400}
 
-    .cta{margin-top:48px;display:inline-flex;align-items:center;gap:14px;
-      background:var(--orange);color:#000;
-      padding:18px 26px 18px 26px;border-radius:0;
-      font-weight:800;font-size:17px;letter-spacing:.4px;
-      box-shadow:0 8px 32px rgba(255,122,26,0.35);
-      transition:transform .15s ease, box-shadow .15s ease;
-      border:none;cursor:pointer}
-    .cta:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,122,26,0.5)}
-    .cta:active{transform:translateY(0)}
-    .cta .arrow{font-size:22px;line-height:1;font-weight:900}
+    .hero-anchors{margin-top:48px;display:flex;flex-wrap:wrap;gap:14px}
+    .anchor{display:inline-flex;align-items:center;gap:10px;
+      background:transparent;color:var(--t1);
+      padding:14px 18px;border:1px solid var(--t4);
+      font-weight:700;font-size:13px;letter-spacing:.4px;text-transform:uppercase;
+      transition:border-color .15s ease, color .15s ease, background .15s ease}
+    .anchor:hover{border-color:var(--orange);color:var(--orange)}
+    .anchor .dotmini{width:8px;height:8px;display:inline-block}
+    .anchor .da{background:var(--orange)}
+    .anchor .db{background:var(--yellow)}
+    .anchor .dc{background:var(--blue)}
+    .anchor .dd{background:var(--red)}
 
     /* ─── Bauhaus-Shapes (Hero Hintergrund) ─────────────────── */
     .shapes{position:absolute;inset:0;pointer-events:none;z-index:0}
@@ -97,30 +101,99 @@
     .rule::before{content:"";flex:0 0 32px;height:2px;background:var(--orange);display:block}
     .rule::after{content:"";flex:1;height:1px;background:var(--line);display:block}
 
-    /* ─── Coming Soon Grid ──────────────────────────────────── */
-    .coming{padding:80px 0 120px;position:relative}
-    .coming h2{font-size:clamp(36px,6vw,64px);font-weight:900;font-style:italic;
+    /* ─── Section heading helpers ───────────────────────────── */
+    .sect{padding:80px 0;position:relative}
+    .sect h2{font-size:clamp(36px,6vw,64px);font-weight:900;font-style:italic;
       letter-spacing:-1px;line-height:1;margin:24px 0 16px;color:var(--t1)}
-    .coming .sub{color:var(--t2);max-width:52ch;font-size:16px;line-height:1.6;margin-bottom:48px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-    .tile{background:var(--card);border:1px solid var(--line);padding:32px 24px 28px;
-      position:relative;overflow:hidden;
+    .sect h2 .accent{color:var(--orange)}
+    .sect .sub{color:var(--t2);max-width:56ch;font-size:16px;line-height:1.7;margin-bottom:40px}
+
+    /* ─── Launch Site (Featured) ────────────────────────────── */
+    .launch{padding:96px 0 96px;position:relative;
+      border-top:1px solid var(--line);
+      background:linear-gradient(180deg,#0A0A0A 0%, #0E0E0E 100%)}
+    .launch .kicker{display:inline-block;background:var(--orange);color:#000;
+      font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+      padding:6px 12px;margin-bottom:24px}
+    .launch h2{font-size:clamp(40px,8vw,96px);font-weight:900;font-style:italic;
+      letter-spacing:-2px;line-height:.95;color:var(--t1);max-width:14ch}
+    .launch h2 .accent{color:var(--orange)}
+    .launch .lead{margin-top:28px;color:var(--t2);max-width:60ch;
+      font-size:clamp(15px,1.8vw,18px);line-height:1.7}
+    .launch-grid{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    @media(max-width:780px){.launch-grid{grid-template-columns:1fr}}
+    .pillar{background:var(--card);border:1px solid var(--line);
+      padding:36px 28px;position:relative;overflow:hidden;
       transition:transform .2s ease,border-color .2s ease,background .2s ease}
-    .tile:hover{transform:translateY(-3px);border-color:var(--orange);background:var(--card2)}
-    .tile .badge{display:inline-block;background:transparent;color:var(--orange);
-      font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;
-      border:1px solid var(--orange);padding:5px 9px;margin-bottom:18px}
-    .tile h3{font-size:28px;font-weight:900;font-style:italic;letter-spacing:-.6px;
-      color:var(--t1);margin-bottom:10px;line-height:1}
-    .tile p{color:var(--t2);font-size:14px;line-height:1.55;font-weight:400}
-    .tile .corner{position:absolute;top:0;right:0;width:48px;height:48px;display:block}
-    .tile-events .corner{background:var(--yellow)}
-    .tile-shop   .corner{background:var(--blue)}
-    .tile-more   .corner{background:var(--red);
+    .pillar:hover{transform:translateY(-3px);border-color:var(--orange);background:var(--card2)}
+    .pillar .pcorner{position:absolute;top:0;right:0;width:56px;height:56px}
+    .pillar.club .pcorner{background:var(--yellow)}
+    .pillar.consult .pcorner{background:var(--blue);
       clip-path:polygon(0 0,100% 0,100% 100%)}
+    .pillar .ptag{font-size:11px;font-weight:800;letter-spacing:2.5px;
+      text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+    .pillar h3{font-size:30px;font-weight:900;font-style:italic;letter-spacing:-.6px;
+      line-height:1.05;margin-bottom:14px}
+    .pillar p{color:var(--t2);font-size:15px;line-height:1.65}
+    .pillar ul{margin-top:18px;padding-left:0;list-style:none;color:var(--t2);font-size:14px}
+    .pillar ul li{padding:6px 0 6px 18px;position:relative;line-height:1.5}
+    .pillar ul li::before{content:"";position:absolute;left:0;top:14px;
+      width:8px;height:2px;background:var(--orange)}
+    .launch-cta{margin-top:48px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+    .cta{display:inline-flex;align-items:center;gap:14px;
+      background:var(--orange);color:#000;
+      padding:18px 26px;border-radius:0;
+      font-weight:800;font-size:16px;letter-spacing:.4px;
+      box-shadow:0 8px 32px rgba(255,122,26,0.35);
+      transition:transform .15s ease, box-shadow .15s ease;
+      border:none;cursor:pointer}
+    .cta:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,122,26,0.5)}
+    .cta .arrow{font-size:20px;line-height:1;font-weight:900}
+    .ghost{display:inline-flex;align-items:center;gap:12px;
+      background:transparent;color:var(--t1);
+      padding:18px 24px;border:1px solid var(--t4);
+      font-weight:700;font-size:14px;letter-spacing:.4px;
+      transition:border-color .15s ease,color .15s ease}
+    .ghost:hover{border-color:var(--orange);color:var(--orange)}
+
+    /* ─── Generic two-up section (Team / DNA / App) ─────────── */
+    .pillars{padding:96px 0 96px;border-top:1px solid var(--line)}
+    .pillars .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .card-block{background:var(--card);border:1px solid var(--line);
+      padding:40px 28px 32px;position:relative;overflow:hidden;
+      transition:transform .2s ease,border-color .2s ease,background .2s ease;
+      display:flex;flex-direction:column}
+    .card-block:hover{transform:translateY(-3px);border-color:var(--orange);background:var(--card2)}
+    .card-block .ccorner{position:absolute;top:0;right:0;width:56px;height:56px}
+    .card-block.team .ccorner{background:var(--red)}
+    .card-block.dna .ccorner{background:var(--orange);border-radius:0 0 0 100%}
+    .card-block.app .ccorner{background:var(--blue);
+      clip-path:polygon(0 0,100% 0,100% 100%)}
+    .card-block .ctag{font-size:11px;font-weight:800;letter-spacing:2.5px;
+      text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+    .card-block h3{font-size:32px;font-weight:900;font-style:italic;letter-spacing:-.6px;
+      line-height:1;margin-bottom:14px}
+    .card-block p{color:var(--t2);font-size:14px;line-height:1.65;flex:1}
+    .card-block .clink{margin-top:24px;display:inline-flex;align-items:center;gap:8px;
+      color:var(--orange);font-size:12px;font-weight:800;letter-spacing:1.5px;
+      text-transform:uppercase;border-bottom:1px solid var(--orange);
+      padding-bottom:4px;align-self:flex-start}
+    .card-block .clink:hover{color:var(--yellow);border-color:var(--yellow)}
+
+    /* ─── DNA panel (own detail block) ───────────────────────── */
+    .dna-detail{padding:96px 0;border-top:1px solid var(--line)}
+    .dna-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;
+      margin-top:40px}
+    .dna-item{padding:24px 20px;background:var(--card);border-left:3px solid var(--orange)}
+    .dna-item:nth-child(2){border-left-color:var(--yellow)}
+    .dna-item:nth-child(3){border-left-color:var(--blue)}
+    .dna-item:nth-child(4){border-left-color:var(--red)}
+    .dna-item h4{font-size:18px;font-weight:900;font-style:italic;letter-spacing:-.3px;
+      margin-bottom:10px}
+    .dna-item p{color:var(--t2);font-size:13px;line-height:1.6}
 
     /* ─── Impressum ─────────────────────────────────────────── */
-    .impressum{padding:64px 0 96px;border-top:1px solid var(--line);background:var(--bg)}
+    .impressum{padding:80px 0 96px;border-top:1px solid var(--line);background:var(--bg)}
     .impressum h2{font-size:32px;font-weight:900;font-style:italic;letter-spacing:-.5px;
       margin:24px 0 32px}
     .legal{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:780px}
@@ -164,9 +237,11 @@
         <span>RITMO</span><span class="dot" aria-hidden="true"></span>
       </div>
       <nav class="nav" aria-label="Seitennavigation">
-        <a href="#coming">Coming&nbsp;Soon</a>
+        <a href="#launch">Launch&nbsp;Site</a>
+        <a href="#team">Team</a>
+        <a href="#dna">RITMO&nbsp;DNA</a>
+        <a href="#app">App</a>
         <a href="#impressum">Impressum</a>
-        <a href="https://ritmopadel.app/" rel="noopener">Zur&nbsp;App</a>
       </nav>
     </div>
   </header>
@@ -192,56 +267,158 @@
 
     <div class="wrap hero-content">
       <h1 class="fi d1">
-        DIE&nbsp;APP<br>
-        IST&nbsp;<span class="accent">LIVE</span>.
+        PADEL<br>
+        IN <span class="accent">RHYTHMUS</span>.
       </h1>
       <p class="lead fi d2">
-        RITMO Padel — Scoring, Turniere und deine persönliche RITMO DNA.
-        Spiel, tracke und teile dein Padel-Spiel.
+        RITMO ist mehr als eine App — es ist Club, Consulting und Community.
+        Ein Padel-Universum mit Takt, Form und Haltung.
       </p>
-      <a class="cta fi d3" href="https://ritmopadel.app/" rel="noopener">
-        ritmopadel.app
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
+      <div class="hero-anchors fi d3">
+        <a class="anchor" href="#launch"><span class="dotmini da"></span>Launch&nbsp;Site</a>
+        <a class="anchor" href="#team"><span class="dotmini dd"></span>Team</a>
+        <a class="anchor" href="#dna"><span class="dotmini db"></span>RITMO&nbsp;DNA</a>
+        <a class="anchor" href="#app"><span class="dotmini dc"></span>RITMO&nbsp;Padel&nbsp;App</a>
+      </div>
     </div>
   </section>
 
-  <!-- ─── Coming Soon ─────────────────────────────────────── -->
-  <section class="coming" id="coming">
+  <!-- ─── Launch Site (Flagship) ──────────────────────────── -->
+  <section class="launch" id="launch">
     <div class="wrap">
-      <p class="rule">Roadmap</p>
-      <h2 class="fi">COMING<br>SOON.</h2>
-      <p class="sub fi d1">
-        Mehr als nur eine App. Wir bauen das RITMO-Universum — Schritt
-        für Schritt, mit der Community.
+      <p class="rule">01 — Flagship</p>
+      <span class="kicker">Launch Site</span>
+      <h2 class="fi">
+        RITMO PADEL <span class="accent">CLUB</span><br>
+        &amp; FACILITY CONSULTING.
+      </h2>
+      <p class="lead fi d1">
+        Wir bauen den ersten RITMO Padel Club — einen physischen Ort für
+        Community, Events und Spielkultur. Parallel begleiten wir mit
+        <strong>RITMO Facility Consulting</strong> Betreiber:innen beim Konzipieren,
+        Eröffnen und Skalieren ihrer eigenen Anlage.
       </p>
 
-      <div class="grid">
+      <div class="launch-grid">
 
-        <div class="tile tile-events fi d1">
-          <span class="corner" aria-hidden="true"></span>
-          <span class="badge">2026</span>
-          <h3>Events</h3>
-          <p>RITMO Turniere, Open Days, Meetups — vor Ort und in Zukunft auch live verfolgbar
-            in der App. Alle Spieler:innen, alle Klassen.</p>
+        <div class="pillar club fi d1">
+          <span class="pcorner" aria-hidden="true"></span>
+          <div class="ptag">Club</div>
+          <h3>Für Community<br>&amp; Events.</h3>
+          <p>Padel als Treffpunkt — nicht nur als Sport. Offene Spielzeiten,
+            kuratierte Turniere, Mitglieder-Events und ein Ort, der nach
+            Rhythmus klingt.</p>
+          <ul>
+            <li>Indoor- und Outdoor-Courts</li>
+            <li>Open Plays &amp; Liga-Turniere</li>
+            <li>Coaching für Einsteiger:innen bis Pro</li>
+            <li>Events, Workshops, Community-Nights</li>
+          </ul>
         </div>
 
-        <div class="tile tile-shop fi d2">
-          <span class="corner" aria-hidden="true"></span>
-          <span class="badge">2026</span>
-          <h3>Shop</h3>
-          <p>RITMO Apparel und Gear in Bauhaus-Ästhetik. Schläger, Bälle,
-            Trikots, Print-Editionen.</p>
+        <div class="pillar consult fi d2">
+          <span class="pcorner" aria-hidden="true"></span>
+          <div class="ptag">Consulting</div>
+          <h3>Facility<br>Consulting.</h3>
+          <p>Von der Standortanalyse bis zur Eröffnung. Wir teilen, was wir
+            beim Aufbau des RITMO Clubs gelernt haben — operativ, baulich,
+            kommerziell.</p>
+          <ul>
+            <li>Standort- &amp; Marktanalyse</li>
+            <li>Bau- und Court-Planung</li>
+            <li>Betriebsmodell &amp; Pricing</li>
+            <li>Brand, Community &amp; Tech-Stack</li>
+          </ul>
         </div>
 
-        <div class="tile tile-more fi d3">
-          <span class="corner" aria-hidden="true"></span>
-          <span class="badge">…</span>
-          <h3>&amp; mehr</h3>
-          <p>Coaching-Sessions, Vereinspartnerschaften, Spielauswertung.
-            Bleib dran. Updates immer in der App.</p>
-        </div>
+      </div>
 
+      <div class="launch-cta">
+        <a class="cta" href="mailto:hallo@ritmopadel.app?subject=RITMO%20Launch%20Site">
+          Sprich mit uns
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="ghost" href="#team">Lern das Team kennen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Pillars: Team / DNA / App ───────────────────────── -->
+  <section class="pillars">
+    <div class="wrap">
+      <p class="rule">02 — Pillars</p>
+      <h2 class="fi" style="font-size:clamp(36px,6vw,64px);font-weight:900;font-style:italic;
+          letter-spacing:-1px;line-height:1;margin:24px 0 32px">DREI<br>SÄULEN.</h2>
+
+      <div class="grid3">
+
+        <a class="card-block team fi d1" href="#team-detail" id="team">
+          <span class="ccorner" aria-hidden="true"></span>
+          <div class="ctag">Team</div>
+          <h3>Wer wir<br>sind.</h3>
+          <p>Spieler:innen, Betreiber:innen und Designer:innen aus dem
+            DACH-Raum. RITMO ist ein Projekt von Menschen, die Padel
+            ernst nehmen — und gut aussehende Dinge bauen.</p>
+          <span class="clink">Team ansehen →</span>
+        </a>
+
+        <a class="card-block dna fi d2" href="#dna">
+          <span class="ccorner" aria-hidden="true"></span>
+          <div class="ctag">RITMO DNA</div>
+          <h3>Was uns<br>ausmacht.</h3>
+          <p>Bauhaus-Klarheit trifft Padel-Tempo. Vier Farben, drei Formen,
+            ein Takt. Jede Entscheidung — vom Logo bis zur Wandfarbe im
+            Club — folgt der RITMO DNA.</p>
+          <span class="clink">DNA entdecken →</span>
+        </a>
+
+        <a class="card-block app fi d3" href="https://ritmopadel.app/" rel="noopener" id="app">
+          <span class="ccorner" aria-hidden="true"></span>
+          <div class="ctag">App · Live-Beta</div>
+          <h3>RITMO<br>Padel App.</h3>
+          <p>Scoring, Turniere und deine persönliche RITMO DNA. Spiel,
+            tracke und teile dein Padel-Spiel — kostenlos, direkt im
+            Browser unter ritmopadel.app.</p>
+          <span class="clink">Zur App →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RITMO DNA Detail ────────────────────────────────── -->
+  <section class="dna-detail" id="dna">
+    <div class="wrap">
+      <p class="rule">03 — Identität</p>
+      <h2 class="fi" style="font-size:clamp(36px,6vw,64px);font-weight:900;font-style:italic;
+          letter-spacing:-1px;line-height:1;margin:24px 0 16px">RITMO<br>DNA.</h2>
+      <p class="sub fi d1" style="color:var(--t2);max-width:56ch;font-size:16px;
+          line-height:1.7;margin-bottom:0">
+        Vier Prinzipien. Sie bestimmen, wie der Club gebaut wird, wie die
+        App sich anfühlt und wie wir mit Partnern arbeiten.
+      </p>
+
+      <div class="dna-grid">
+        <div class="dna-item fi d1">
+          <h4>Takt.</h4>
+          <p>Padel ist Rhythmus — kurze Ballwechsel, lange Bögen. Unsere
+            Produkte und Räume folgen demselben Puls.</p>
+        </div>
+        <div class="dna-item fi d2">
+          <h4>Form.</h4>
+          <p>Bauhaus-Geometrie: Kreis, Quadrat, Dreieck. Klare Linien,
+            keine Dekoration ohne Funktion.</p>
+        </div>
+        <div class="dna-item fi d3">
+          <h4>Farbe.</h4>
+          <p>Schwarz als Fundament. Orange, Gelb, Blau, Rot als
+            Primärakzente. Nichts dazwischen.</p>
+        </div>
+        <div class="dna-item fi d4">
+          <h4>Haltung.</h4>
+          <p>Wir bauen langsam, ehrlich und für Spieler:innen, nicht für
+            Investorenrunden. Community vor Skalierung.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -305,7 +482,6 @@
     <div class="wrap foot">
       <div>© <span id="yr">2026</span> RITMO Padel. Made with ♥ in DACH.</div>
       <div>
-        &nbsp;·&nbsp;
         <a href="#impressum">Impressum</a>
       </div>
     </div>
