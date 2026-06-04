@@ -256,6 +256,92 @@ img.imgph::before,img.imgph::after{display:none}
 .team-empty{padding:48px 28px;text-align:center;border:1px dashed var(--t4);
   color:var(--t3);font-size:13px;letter-spacing:1px}
 
+/* ─── DNA — Archetype cards (6 Spielstile) ────────────── */
+.archetype-grid{display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;
+  margin-top:32px}
+.archetype{background:var(--card);border:1px solid var(--line);
+  padding:28px 22px 24px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:14px;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.archetype:hover{transform:translateY(-3px);border-color:var(--orange);background:var(--card2)}
+.archetype .sigil{width:64px;height:64px;display:block}
+.archetype .a-name{font-size:22px;font-weight:900;font-style:italic;
+  letter-spacing:-.4px;line-height:1;margin-top:4px}
+.archetype .a-name .glyph{margin-left:8px;font-family:monospace;
+  font-style:normal;color:var(--t3);font-size:14px;letter-spacing:0}
+.archetype .a-tag{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  font-weight:800;color:var(--orange)}
+.archetype .a-body{color:var(--t2);font-size:13px;line-height:1.6}
+.archetype .a-meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
+  color:var(--t3);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  font-weight:800}
+.archetype .a-meta strong{color:var(--t1);font-weight:800;letter-spacing:1.5px}
+
+/* ─── DNA — Level ladder (L1–L7) ───────────────────────── */
+.level-ladder{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;
+  margin-top:32px;align-items:end}
+@media(max-width:680px){.level-ladder{grid-template-columns:repeat(7,1fr);gap:4px}}
+.level-step{position:relative;background:var(--card);border:1px solid var(--line);
+  padding:14px 8px;text-align:center;
+  transition:background .2s ease,border-color .2s ease}
+.level-step:hover{background:var(--card2);border-color:var(--orange)}
+.level-step .l-num{display:block;font-size:18px;font-weight:900;
+  font-style:italic;letter-spacing:-.3px;color:var(--t1)}
+.level-step .l-name{display:block;font-size:9px;letter-spacing:1.5px;
+  text-transform:uppercase;font-weight:800;color:var(--t3);margin-top:6px}
+.level-step:nth-child(1){border-top:3px solid var(--t4)}
+.level-step:nth-child(2){border-top:3px solid var(--blue)}
+.level-step:nth-child(3){border-top:3px solid var(--blue)}
+.level-step:nth-child(4){border-top:3px solid var(--yellow)}
+.level-step:nth-child(5){border-top:3px solid var(--yellow)}
+.level-step:nth-child(6){border-top:3px solid var(--orange)}
+.level-step:nth-child(7){border-top:3px solid var(--red)}
+.level-step:nth-child(n) .l-num{font-size:clamp(14px,2vw,18px)}
+@media(max-width:560px){
+  .level-step{padding:10px 4px}
+  .level-step .l-name{display:none}
+}
+
+/* ─── DNA — Match-Tier examples ────────────────────────── */
+.tier-list{display:grid;gap:12px;margin-top:32px}
+.tier-row{display:grid;grid-template-columns:auto 1fr auto;gap:18px;
+  align-items:center;padding:18px 22px;background:var(--card);
+  border:1px solid var(--line)}
+.tier-row .pairing{font-size:15px;font-weight:700;color:var(--t1);
+  font-style:italic;letter-spacing:-.2px}
+.tier-row .pairing .vs{color:var(--t3);font-weight:400;margin:0 6px}
+.tier-row .pairing .lvl{color:var(--t3);font-weight:600;font-size:13px;margin-left:4px}
+.tier-row .note{color:var(--t2);font-size:13px;line-height:1.5}
+.tier-badge{display:inline-flex;align-items:center;justify-content:center;
+  min-width:56px;height:56px;padding:0 12px;
+  font-size:22px;font-weight:900;font-style:italic;letter-spacing:-.6px;
+  background:var(--card2);color:var(--t1);border:1px solid var(--line)}
+.tier-badge.s{background:var(--orange);color:#000;border-color:var(--orange)}
+.tier-badge.a{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.tier-badge.b{background:var(--blue);color:#000;border-color:var(--blue)}
+.tier-badge.c{background:var(--card2);color:var(--t1)}
+.tier-badge.d{background:transparent;color:var(--t3);border-color:var(--t4)}
+@media(max-width:560px){
+  .tier-row{grid-template-columns:auto 1fr;gap:14px}
+  .tier-row .note{grid-column:1 / -1}
+}
+
+/* ─── DNA — App location callouts (Wo im App) ──────────── */
+.where-grid{display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:32px}
+.where{padding:24px 22px;background:var(--card);border:1px solid var(--line);
+  border-left:3px solid var(--orange)}
+.where.c-yellow{border-left-color:var(--yellow)}
+.where.c-blue  {border-left-color:var(--blue)}
+.where.c-red   {border-left-color:var(--red)}
+.where h4{font-size:14px;font-weight:900;font-style:italic;letter-spacing:-.2px;
+  margin-bottom:8px}
+.where p{color:var(--t2);font-size:13px;line-height:1.6}
+.where code{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:11px;
+  background:var(--bg);padding:2px 6px;color:var(--t1);border:1px solid var(--line);
+  margin-top:8px;display:inline-block}
+
 /* ─── Launch page — gallery / facility placeholders ────── */
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:20px;margin-top:40px}
