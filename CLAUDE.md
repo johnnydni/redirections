@@ -11,6 +11,7 @@ There is no build, no package manager, no dependencies, no test suite. Browsers 
 ## Architecture
 
 - **`styles.css`** — single shared stylesheet for every page. All design tokens ("RITMO Bauhaus Dark": colors, type) live in `:root` CSS variables at the top. Change them there, not in individual rules. Every page links to this file via `<link rel="stylesheet" href="styles.css">`.
+- **`motion.js`** — shared ES module loaded as `<script type="module" src="motion.js"></script>` from the bottom of every page. Imports [Motion One](https://motion.dev) (the vanilla-JS sibling of Framer Motion, same author, near-identical `animate` / `inView` API) from a JSDelivr CDN. Handles three things: page-exit fade-out on internal link clicks, scroll-triggered fade-in for sections below the fold (`section.sect` after the first one), and the mobile hamburger menu toggle with staggered item entrance. Respects `prefers-reduced-motion`. If the CDN fails to load, page navigation and scrolling still work — but the mobile hamburger becomes inert (no JS = no toggle). Footer nav remains the no-JS fallback for mobile.
 - **`index.html`** — landing page: hero + Launch Site summary + 3-up pillar cards (Team / DNA / App).
 - **`launch.html`** — Launch Site detail: RITMO Padel Club (Community & Events) + RITMO Facility Consulting (Konzept / Bau / Betrieb). Includes gallery image placeholders.
 - **`team.html`** — Team page. Built around a CSS-grid layout that auto-fills with however many member cards you give it. See "Editing the Team page" below.

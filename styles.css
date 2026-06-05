@@ -46,7 +46,50 @@ header{padding:32px 0 0;position:relative;z-index:5}
 .nav a:hover{color:var(--orange)}
 .nav a[aria-current="page"]{color:var(--t1);border-bottom:2px solid var(--orange);
   padding-bottom:2px}
+.nav-external{display:inline-flex;align-items:center;gap:5px}
+.ext-icon{width:10px;height:10px;display:inline-block;opacity:.55;
+  transition:opacity .15s ease}
+.nav-external:hover .ext-icon,
+.nav-mobile a:hover .ext-icon{opacity:1}
 @media(max-width:720px){.nav{display:none}}
+
+/* ─── Burger button (mobile only) ──────────────────────── */
+.burger{display:none;background:none;border:0;
+  width:32px;height:24px;position:relative;cursor:pointer;
+  padding:0;margin:0;z-index:201;-webkit-tap-highlight-color:transparent}
+.burger:focus-visible{outline:2px solid var(--orange);outline-offset:6px}
+.burger span{display:block;position:absolute;left:0;right:0;height:2px;
+  background:var(--t1);
+  transition:transform .25s ease, opacity .15s ease, top .25s ease}
+.burger span:nth-child(1){top:4px}
+.burger span:nth-child(2){top:11px}
+.burger span:nth-child(3){top:18px}
+.burger[aria-expanded="true"] span:nth-child(1){top:11px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){top:11px;transform:rotate(-45deg)}
+@media(max-width:720px){.burger{display:block}}
+
+/* ─── Mobile nav overlay ───────────────────────────────── */
+.nav-mobile{position:fixed;top:88px;left:0;right:0;bottom:0;
+  background:var(--bg);z-index:150;
+  padding:24px 0 80px;display:none;overflow-y:auto;
+  border-top:1px solid var(--line)}
+.nav-mobile[aria-hidden="false"]{display:block}
+.nav-mobile > .wrap{display:flex;flex-direction:column;gap:0}
+.nav-mobile a{display:flex;align-items:center;justify-content:space-between;
+  padding:24px 0;
+  font-size:clamp(28px,7vw,40px);font-weight:900;font-style:italic;
+  letter-spacing:-.6px;color:var(--t1);
+  border-bottom:1px solid var(--line);text-transform:none;
+  text-decoration:none;
+  transition:color .15s ease, padding-left .2s ease}
+.nav-mobile a:hover{color:var(--orange);padding-left:8px}
+.nav-mobile a[aria-current="page"]{color:var(--orange)}
+.nav-mobile a:last-child{border-bottom:none}
+.nav-mobile .ext-icon{width:16px;height:16px;opacity:.5}
+body.nav-open{overflow:hidden}
+/* Hide bauhausline + page content behind menu when open */
+body.nav-open .bauhausline{visibility:hidden}
 
 /* ─── Hero (home) ──────────────────────────────────────── */
 .hero{position:relative;padding:96px 0 80px;overflow:hidden}
