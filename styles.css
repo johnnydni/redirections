@@ -51,23 +51,36 @@ header{padding:32px 0 0;position:relative;z-index:5}
   transition:opacity .15s ease}
 .nav-external:hover .ext-icon,
 .nav-mobile a:hover .ext-icon{opacity:1}
+/* Permanent orange underline on the App link in the desktop nav —
+   reads as a brand outbound marker, similar to aria-current. */
+.nav a.nav-external{color:var(--t1);border-bottom:3px solid var(--orange);
+  padding-bottom:4px}
 @media(max-width:720px){.nav{display:none}}
 
-/* ─── Burger button (mobile only) ──────────────────────── */
-.burger{display:none;background:none;border:0;
-  width:32px;height:24px;position:relative;cursor:pointer;
-  padding:0;margin:0;z-index:201;-webkit-tap-highlight-color:transparent}
-.burger:focus-visible{outline:2px solid var(--orange);outline-offset:6px}
-.burger span{display:block;position:absolute;left:0;right:0;height:2px;
+/* ─── Burger button (Shop-style: framed square, always visible) ─── */
+.nav{margin-left:auto}  /* push the desktop nav + burger to the right */
+.burger{display:block;background:transparent;border:1.5px solid var(--t1);
+  width:44px;height:44px;position:relative;cursor:pointer;
+  padding:0;margin:0;z-index:201;
+  transition:background .2s ease, border-color .2s ease;
+  -webkit-tap-highlight-color:transparent}
+.burger:hover{border-color:var(--orange)}
+.burger:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+.burger span{display:block;position:absolute;left:10px;right:10px;height:2px;
   background:var(--t1);
-  transition:transform .25s ease, opacity .15s ease, top .25s ease}
-.burger span:nth-child(1){top:4px}
-.burger span:nth-child(2){top:11px}
-.burger span:nth-child(3){top:18px}
-.burger[aria-expanded="true"] span:nth-child(1){top:11px;transform:rotate(45deg)}
+  transition:transform .25s ease, opacity .15s ease, top .25s ease,
+             background .15s ease}
+.burger span:nth-child(1){top:14px}
+.burger span:nth-child(2){top:21px}
+.burger span:nth-child(3){top:28px}
+/* Open state — orange filled square, black X */
+.burger[aria-expanded="true"]{background:var(--orange);border-color:var(--orange)}
+.burger[aria-expanded="true"]:hover{border-color:var(--orange);
+  background:#FF8E3A}
+.burger[aria-expanded="true"] span{background:#000}
+.burger[aria-expanded="true"] span:nth-child(1){top:21px;transform:rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
-.burger[aria-expanded="true"] span:nth-child(3){top:11px;transform:rotate(-45deg)}
-@media(max-width:720px){.burger{display:block}}
+.burger[aria-expanded="true"] span:nth-child(3){top:21px;transform:rotate(-45deg)}
 
 /* ─── Mobile nav overlay ───────────────────────────────── */
 .nav-mobile{position:fixed;top:88px;left:0;right:0;bottom:0;
@@ -76,17 +89,21 @@ header{padding:32px 0 0;position:relative;z-index:5}
   border-top:1px solid var(--line)}
 .nav-mobile[aria-hidden="false"]{display:block}
 .nav-mobile > .wrap{display:flex;flex-direction:column;gap:0}
-.nav-mobile a{display:flex;align-items:center;justify-content:space-between;
-  padding:24px 0;
-  font-size:clamp(28px,7vw,40px);font-weight:900;font-style:italic;
-  letter-spacing:-.6px;color:var(--t1);
-  border-bottom:1px solid var(--line);text-transform:none;
-  text-decoration:none;
-  transition:color .15s ease, padding-left .2s ease}
-.nav-mobile a:hover{color:var(--orange);padding-left:8px}
-.nav-mobile a[aria-current="page"]{color:var(--orange)}
+.nav-mobile a{display:flex;flex-direction:column;gap:8px;
+  padding:28px 0;color:var(--t1);text-decoration:none;
+  border-bottom:1px solid var(--line);
+  transition:padding-left .2s ease}
+.nav-mobile a:hover{padding-left:12px}
 .nav-mobile a:last-child{border-bottom:none}
-.nav-mobile .ext-icon{width:16px;height:16px;opacity:.5}
+.nav-mobile .m-name{font-size:clamp(32px,7vw,56px);font-weight:900;
+  font-style:italic;letter-spacing:-.8px;line-height:1;
+  color:var(--t1);transition:color .15s ease}
+.nav-mobile a:hover .m-name{color:var(--orange)}
+.nav-mobile a[aria-current="page"] .m-name{color:var(--orange)}
+.nav-mobile .m-desc{font-size:clamp(13px,1.5vw,16px);letter-spacing:.3px;
+  color:var(--t3);font-weight:400;font-style:normal;
+  text-transform:none;line-height:1.4}
+.nav-mobile .ext-icon{width:14px;height:14px;opacity:.5}
 body.nav-open{overflow:hidden}
 /* Hide bauhausline + page content behind menu when open */
 body.nav-open .bauhausline{visibility:hidden}
